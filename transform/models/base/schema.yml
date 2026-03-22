@@ -19,7 +19,7 @@ models:
               arguments:
                 name: user_types_from_git
                 values: ['User', 'Bot']
-      - name: login
+      - name: username
         description: >
           The GitHub username of the stargazer. 
       - name: repo_name

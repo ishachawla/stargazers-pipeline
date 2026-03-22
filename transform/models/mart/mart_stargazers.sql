@@ -1,6 +1,6 @@
 
 SELECT 
-    i.login,
+    i.username,
     i.user_id,
     COUNT(DISTINCT i.repo_name) AS repos_starred,
     MIN(starred_at) AS first_starred_at,
