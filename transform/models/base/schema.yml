@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: base_stargazers
+    description: Model to capture all the stargazers from all the repos.
+    columns:
+      - name: user_id 
+        description: >
+          GitHub's permanent numeric identifier for the user. 
+        data_tests:
+          - not_null 
+      - name: user_type
+        description: >
+          The type of GitHub account. Either 'User' for a real 
+          human account or 'Bot' for automated accounts.
+        data_tests:
+          - not_null
+          - accepted_values: 
+              arguments:
+                name: user_types_from_git
+                values: ['User', 'Bot']
+      - name: login
+        description: >
+          The GitHub username of the stargazer. 
+      - name: repo_name
+        description: Name of the repository that the user starred.
+        data_tests:
+          - not_null
+      - name: starred_at
+        description: >
+          The exact timestamp when the user starred the repository, 
+          as recorded by GitHub.
+        
+
+      

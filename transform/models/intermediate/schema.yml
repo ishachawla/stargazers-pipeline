@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: int_stargazers
+    description: >
+      intermediate model to remove all Bot accounts and add more granularity on 
+      starred date.
+    columns:
+      - name: stargazer_pk
+        description: >
+          Surrogate Key 
+        data_tests:
+          - unique
+          - not_null
+      - name: user_id 
+        description: >
+          GitHub's permanent numeric identifier for the user. 
+        data_tests:
+          - not_null 
+      - name: login
+        description: >
+          Github usernames - these can change over time.
+      - name: starred_at
+        description: >
+          The date the the user starred the git repo.
+        data_tests:
+          - not_null
+      - name: starred_month
+
+      

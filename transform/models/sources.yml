@@ -1,0 +1,8 @@
+version: 2
+
+
+sources:
+  - name: github_raw
+    schema: github_raw
+    tables :
+      - name: stargazers
