@@ -1,0 +1,14 @@
+transform:
+  target: dev
+  outputs:
+
+    # Local DuckDB — for development
+    dev:
+      type: duckdb
+      path: "../stargazers.duckdb"
+
+    # MotherDuck — for production (managed DuckDB)
+    prod:
+      type: duckdb
+      path: "md:stargazers"
+      token: "{{ env_var('MOTHERDUCK_TOKEN') }}"
