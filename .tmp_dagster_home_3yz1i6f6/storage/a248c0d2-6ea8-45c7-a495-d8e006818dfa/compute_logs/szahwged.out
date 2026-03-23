@@ -1,0 +1,18 @@
+Running with dbt=1.11.7
+Registered adapter: duckdb=1.10.1
+Found 3 models, 8 data tests, 1 source, 590 macros
+
+Concurrency: 1 threads (target='prod')
+
+1 of 3 START sql table model main_base_stargazers.base_stargazers .............. [RUN]
+1 of 3 OK created sql table model main_base_stargazers.base_stargazers ......... [[32mOK[0m in 0.29s]
+2 of 3 START sql incremental model main_int_stargazers.int_stargazers .......... [RUN]
+2 of 3 OK created sql incremental model main_int_stargazers.int_stargazers ..... [[32mOK[0m in 0.31s]
+3 of 3 START sql table model main_mart_stargazers.mart_stargazers .............. [RUN]
+3 of 3 OK created sql table model main_mart_stargazers.mart_stargazers ......... [[32mOK[0m in 0.33s]
+
+Finished running 1 incremental model, 2 table models in 0 hours 0 minutes and 1.25 seconds (1.25s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3

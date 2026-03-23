@@ -1,0 +1,19 @@
+Incremental run — fetching stars newer than: 2026-03-22 21:20:36+00:00
+
+Fetching dbt-labs/dbt-core...
+  Reached already-loaded data — stopping early
+
+Fetching apache/airflow...
+  Reached already-loaded data — stopping early
+
+Fetching dagster-io/dagster...
+  Reached already-loaded data — stopping early
+
+Fetching duckdb/duckdb...
+  Reached already-loaded data — stopping early
+
+Fetching dlt-hub/dlt...
+  Reached already-loaded data — stopping early
+
+Found 0 new records to load
+Nothing new to load — pipeline complete

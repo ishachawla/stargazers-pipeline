@@ -37,19 +37,19 @@ models:
        materialized: table
        schema: base_stargazers
        tags:
-        ["model_type__base"]
+        ["model_type__base"]["domain__stargazers"]
     intermediate:
       enabled: true
       materialized: table
       schema: int_stargazers
       tags:
-        ["model_type__staging"]
+        ["model_type__staging"]["domain__stargazers"]
     mart:
       enabled: true 
       materialized: table 
       schema: mart_stargazers
       tags:
-        ["model_type__mart"]
+        ["model_type__mart"]["domain__stargazers"]
 
 
   

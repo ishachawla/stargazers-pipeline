@@ -1,7 +1,0 @@
-version: 2
-
-models:
-  - name: mart_stargazers
-    description: >
-      Reporting layer 
-    columns:
