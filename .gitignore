@@ -16,4 +16,7 @@ profiles.yml
 package-lock.yml
 packages.yml
 .user.yml
-.tmp_dagster_home_hez82w9w/
+# dagster temp files
+.dagster/
+.tmp_dagster*/
+dagster.yaml

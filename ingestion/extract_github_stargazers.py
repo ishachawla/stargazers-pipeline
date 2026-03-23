@@ -118,7 +118,7 @@ def get_stargazers(last_loaded_at=None):
 # Use Merge disposition to just load updated records or new records.
 # this is a DLT feature though technically with our last_loaded_at function we just find 
 # new records.
-def run_pipeline():
+def run_pipeline(last_loaded_at=None):
     pipeline = dlt.pipeline(
         pipeline_name="stargazers",
         destination="duckdb",
