@@ -85,6 +85,17 @@ User-level aggregation: how many repos each person starred, their first and last
 - Python 3.12
 - `GITHUB_TOKEN` environment variable (needs `public_repo` scope)
 
+#### Creating a GitHub token
+1. Go to [github.com/settings/tokens](https://github.com/settings/tokens) → **Generate new token (classic)**
+2. Give it a name (e.g. `stargazers-pipeline`)
+3. Under **Select scopes**, check `public_repo`
+4. Click **Generate token** and copy the value immediately — GitHub won't show it again
+5. Set it in your environment:
+   ```bash
+   export GITHUB_TOKEN=your_token_here
+   ```
+   To make it permanent, add that line to your `~/.zshrc` or `~/.bashrc`.
+
 ### Install
 
 ```bash
@@ -163,6 +174,18 @@ There are no alerts when the pipeline fails or when source data goes stale beyon
 
 **Future improvement:** Configure Dagster alerts (Slack or email) on job failure. Expose dbt test results as Dagster asset checks so failures surface in the UI. Add a post-transformation step that runs `dbt test` and fails the Dagster run if any test does not pass.
 
-![alt text](image.png)
+---
 
-![alt text](image-1.png)
+## Pipeline in action
+
+### Incremental load — Dagster logs
+
+The pipeline detects that each repo has already been loaded up to the current cursor (`starred_at > 2026-03-23 01:21:38+00:00`) and exits early with 0 new records to load. This is the expected behaviour on subsequent daily runs when no new stars have been added since the last execution.
+
+![Dagster incremental load logs showing early exit for all 5 repos](image.png)
+
+### dbt build — models and tests
+
+dbt runs 11 steps in 1.82 seconds: creates the base table, runs 8 schema tests across the base and intermediate layers, creates the incremental intermediate model, and creates the mart table. All 11 tests pass (`PASS=11 WARN=0 ERROR=0`).
+
+![dbt build output showing 11 steps passing across base, intermediate, and mart models](image-1.png)
