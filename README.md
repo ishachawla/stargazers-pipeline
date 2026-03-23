@@ -182,10 +182,10 @@ There are no alerts when the pipeline fails or when source data goes stale beyon
 
 The pipeline detects that each repo has already been loaded up to the current cursor (`starred_at > 2026-03-23 01:21:38+00:00`) and exits early with 0 new records to load. This is the expected behaviour on subsequent daily runs when no new stars have been added since the last execution.
 
-![Dagster incremental load logs showing early exit for all 5 repos](image.png)
+![Dagster incremental load logs showing early exit for all 5 repos](assets/image.png)
 
 ### dbt build — models and tests
 
 dbt runs 11 steps in 1.82 seconds: creates the base table, runs 8 schema tests across the base and intermediate layers, creates the incremental intermediate model, and creates the mart table. All 11 tests pass (`PASS=11 WARN=0 ERROR=0`).
 
-![dbt build output showing 11 steps passing across base, intermediate, and mart models](image-1.png)
+![dbt build output showing 11 steps passing across base, intermediate, and mart models](assets/image-1.png)
