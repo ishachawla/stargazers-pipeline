@@ -8,6 +8,6 @@ SELECT
     s.user_type AS user_type,
     s.login AS username,
     s.repo_name AS repo_name,
-    s.starred_at:: AS starred_at,
+    s.starred_at AS starred_at,
     CURRENT_DATE() AS load_dt
 FROM {{ source('github_raw', 'stargazers') }} AS s 
