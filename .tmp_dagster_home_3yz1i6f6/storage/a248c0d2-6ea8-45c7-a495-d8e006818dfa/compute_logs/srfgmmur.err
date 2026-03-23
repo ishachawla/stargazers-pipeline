@@ -1,7 +1,0 @@
-[32m2026-03-22 22:54:18 +0000[0m - dagster - [34mDEBUG[0m - daily_job - a248c0d2-6ea8-45c7-a495-d8e006818dfa - 130080 - LOGS_CAPTURED - Started capturing logs in process (pid: 130080).
-[32m2026-03-22 22:54:18 +0000[0m - dagster - [34mDEBUG[0m - daily_job - a248c0d2-6ea8-45c7-a495-d8e006818dfa - 130080 - stargazers_raw - STEP_START - Started execution of step "stargazers_raw".
-[32m2026-03-22 22:54:22 +0000[0m - dagster - [34mDEBUG[0m - daily_job - a248c0d2-6ea8-45c7-a495-d8e006818dfa - 130080 - stargazers_raw - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
-[32m2026-03-22 22:54:22 +0000[0m - dagster - [34mDEBUG[0m - daily_job - a248c0d2-6ea8-45c7-a495-d8e006818dfa - stargazers_raw - Writing file at: /workspaces/stargazers-pipeline/.tmp_dagster_home_3yz1i6f6/storage/stargazers_raw using PickledObjectFilesystemIOManager...
-[32m2026-03-22 22:54:22 +0000[0m - dagster - [34mDEBUG[0m - daily_job - a248c0d2-6ea8-45c7-a495-d8e006818dfa - 130080 - stargazers_raw - ASSET_MATERIALIZATION - Materialized value stargazers_raw.
-[32m2026-03-22 22:54:22 +0000[0m - dagster - [34mDEBUG[0m - daily_job - a248c0d2-6ea8-45c7-a495-d8e006818dfa - 130080 - stargazers_raw - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
-[32m2026-03-22 22:54:22 +0000[0m - dagster - [34mDEBUG[0m - daily_job - a248c0d2-6ea8-45c7-a495-d8e006818dfa - 130080 - stargazers_raw - STEP_SUCCESS - Finished execution of step "stargazers_raw" in 4.22s.
