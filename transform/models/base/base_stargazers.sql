@@ -1,5 +1,6 @@
 /*
-    Base Model to capture all the records from our rawdataset.
+    -------------------- BRONZE LAYER -----------------------------
+    Base Model to capture all the records from our raw dataset.
     We do minimal transformations at this stage to capture any source issues and 
     allow other users the ability to use this model cross domain.
 */
@@ -8,6 +9,6 @@ SELECT
     s.user_type AS user_type,
     s.login AS username,
     s.repo_name AS repo_name,
-    s.starred_at AS starred_at,
+    s.starred_at::TIMESTAMP AS starred_at,
     CURRENT_DATE() AS load_dt
 FROM {{ source('github_raw', 'stargazers') }} AS s 

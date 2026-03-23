@@ -17,7 +17,7 @@ models:
           GitHub's permanent numeric identifier for the user. 
         data_tests:
           - not_null 
-      - name: login
+      - name: username
         description: >
           Github usernames - these can change over time.
       - name: starred_at
