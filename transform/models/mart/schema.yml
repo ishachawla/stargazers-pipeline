@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: mart_stargazers
+    description: >
+      User-level aggregation of GitHub stargazer activity across all tracked repositories.
+      One row per human stargazer. Bots are excluded (filtered at the intermediate layer).
+    columns:
+      - name: username
+        description: GitHub username of the stargazer.
+      - name: user_id
+        description: >
+          GitHub's permanent numeric identifier for the user.
+          Used as the stable key — usernames can change, user_id cannot.
+        data_tests:
+          - not_null
+          - unique
+      - name: repos_starred
+        description: >
+          Count of distinct repositories (from the tracked set) that this user has starred.
+        data_tests:
+          - not_null
+      - name: first_starred_at
+        description: Timestamp of the user's earliest star across all tracked repositories.
+        data_tests:
+          - not_null
+      - name: last_starred_at
+        description: Timestamp of the user's most recent star across all tracked repositories.
+        data_tests:
+          - not_null
+      - name: first_starred_month
+        description: Month (date-truncated) of the user's first star.
+      - name: last_starred_month
+        description: Month (date-truncated) of the user's most recent star.
