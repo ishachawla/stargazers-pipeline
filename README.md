@@ -162,3 +162,7 @@ The intermediate model uses `MAX(starred_at)` as its cursor. Any late-arriving r
 There are no alerts when the pipeline fails or when source data goes stale beyond the dbt freshness SLAs defined in `sources.yml`.
 
 **Future improvement:** Configure Dagster alerts (Slack or email) on job failure. Expose dbt test results as Dagster asset checks so failures surface in the UI. Add a post-transformation step that runs `dbt test` and fails the Dagster run if any test does not pass.
+
+![alt text](image.png)
+
+![alt text](image-1.png)
