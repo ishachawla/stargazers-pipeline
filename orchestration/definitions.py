@@ -35,10 +35,18 @@ def extract_stargazers(context) -> Nothing:
 
 
 @op(ins={"after_extract": In(Nothing)})
+def check_freshness(context, dbt: DbtCliResource) -> Nothing:
+    """Step 2 — Check source freshness against SLAs defined in sources.yml"""
+    context.log.info("Checking source freshness...")
+    dbt.cli(["source", "freshness"]).wait()
+    context.log.info("Freshness check complete")
+
+
+@op(ins={"after_freshness": In(Nothing)})
 def run_dbt(context, dbt: DbtCliResource) -> Nothing:
-    """Step 2 — Run dbt models: base → intermediate → marts"""
+    """Step 3 — Run dbt models: base → intermediate → marts"""
     context.log.info("Running dbt build...")
-    dbt.cli(["build", "--profiles-dir", str(DBT_DIR)]).wait()
+    dbt.cli(["build"]).wait()
     context.log.info("dbt complete")
 
 
@@ -47,9 +55,10 @@ def run_dbt(context, dbt: DbtCliResource) -> Nothing:
     resource_defs={"dbt": dbt_resource},
 )
 def stargazers_daily():
-    """Daily pipeline: extract stargazers then run dbt"""
+    """Daily pipeline: extract stargazers → check freshness → run dbt"""
     after_extract = extract_stargazers()
-    run_dbt(after_extract)
+    after_freshness = check_freshness(after_extract)
+    run_dbt(after_freshness)
 
 
 daily_schedule = ScheduleDefinition(
